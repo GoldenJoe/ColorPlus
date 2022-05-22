@@ -53,7 +53,7 @@ extension PColor {
 }
 
 import SwiftUI
-@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 11.0, *)
+@available(iOS 14.0, macOS 11.0, *)
 extension Color {
     static func addColor(_ color1: Color, with color2: Color) -> Color {
         return Color(PColor.addColor(PColor(color1), with: PColor(color2)))

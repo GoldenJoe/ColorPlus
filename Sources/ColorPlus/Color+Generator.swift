@@ -22,7 +22,7 @@ extension PColor {
 }
 
 import SwiftUI
-@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 11.0, *)
+@available(iOS 14.0, macOS 11.0, *)
 public extension Color {
     func colorsInLinerarGradient(color1: Color, color2: Color, stops: [Double]) -> [Color] {
         return PColor.colorsInLinerarGradient(color1: PColor(color1), color2: PColor(color2), stops: stops).map { pc in
