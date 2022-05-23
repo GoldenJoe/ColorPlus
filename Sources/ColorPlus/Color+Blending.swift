@@ -11,19 +11,15 @@ infix operator ⍺ : AdditionPrecedence // apply last
 extension PColor {
 
     static func addColor(_ color1: PColor, with color2: PColor) -> PColor {
-        var (r1, g1, b1, a1) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
-        var (r2, g2, b2, a2) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
-
-        color1.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
-        color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+        let (r1,g1,b1,a1) = color1.sRGBAComponents
+        let (r2,g2,b2,a2) = color2.sRGBAComponents
 
         // add the components, but don't let them go above 1.0
         return PColor(red: min(r1 + r2, 1), green: min(g1 + g2, 1), blue: min(b1 + b2, 1), alpha: (a1 + a2) / 2)
     }
 
     static func multiplyColor(_ color: PColor, by multiplier: CGFloat) -> PColor {
-        var (r, g, b, a) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
-        color.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let (r,g,b,a) = color.sRGBAComponents
         return PColor(red: r * multiplier, green: g * multiplier, blue: b * multiplier, alpha: a)
     }
     

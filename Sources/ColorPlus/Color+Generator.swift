@@ -16,7 +16,7 @@ extension PColor {
         }
         
         return stops.map { stop in
-            return (color1 * (1.0-stop)) ~~ (color2 * stop)
+            return (color1 * (1.0-stop)) + (color2 * stop)
         }
     }
 }
